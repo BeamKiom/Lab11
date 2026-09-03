@@ -153,6 +153,8 @@ void setup()
   {
     Serial.println("gfx->begin() failed!");
   }
+    gfx->setRotation(1);
+
   gfx->fillScreen(RGB565_BLACK);
 
 #ifdef GFX_BL

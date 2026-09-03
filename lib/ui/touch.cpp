@@ -26,10 +26,10 @@
 
 // Please fill below values from Arduino_GFX Example - TouchCalibration
 bool touch_swap_xy = true;
-int16_t touch_map_x1 = 3300;
-int16_t touch_map_x2 = 500;
-int16_t touch_map_y1 = 3400;
-int16_t touch_map_y2 = 600;
+int16_t touch_map_x1 = 637;
+int16_t touch_map_x2 = 3429;
+int16_t touch_map_y1 = 3368;
+int16_t touch_map_y2 = 614;
 
 int16_t touch_max_x = 320, touch_max_y = 240;
 int16_t touch_raw_x = 0, touch_raw_y = 0;
@@ -143,7 +143,7 @@ bool touch_touched()
     TS_Point p = ts.getPoint();
     
     // กรองสัญญาณรบกวน: รับค่าเฉพาะเมื่อมีแรงกดจริง (z > 400)
-    if (p.z < 250) {
+    if (p.z < 400) {
       return false;
     }
 

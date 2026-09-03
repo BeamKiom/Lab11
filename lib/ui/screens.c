@@ -141,15 +141,15 @@ void create_screen_main() {
             }
         }
         {
+            // adcpage_bt
             lv_obj_t *obj = lv_btn_create(parent_obj);
+            objects.adcpage_bt = obj;
             lv_obj_set_pos(obj, 220, 207);
             lv_obj_set_size(obj, 90, 25);
             {
                 lv_obj_t *parent_obj = obj;
                 {
-                    // adcpage_bt
                     lv_obj_t *obj = lv_label_create(parent_obj);
-                    objects.adcpage_bt = obj;
                     lv_obj_set_pos(obj, 0, 0);
                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                     lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);

@@ -82,24 +82,16 @@ void get_sw_state(lv_timer_t *timer)
 
     int state = digitalRead(*pSW);
 
-    // เปิดความทึบแสงของ LED spray_st
-    lv_obj_set_style_bg_opa(objects.spray_st, LV_OPA_COVER, LV_PART_MAIN);
-
-    // วงจร INPUT_PULLUP: กดปุ่มจะได้ LOW (0), ไม่กดจะได้ HIGH (1)
-    if (state == LOW)
+    if (state == LOW) // เมื่อกดปุ่ม (ต่อแบบ Pull-up ลง GND)
     {
-        // กดปุ่ม -> สีเขียว
-        lv_obj_set_style_bg_color(objects.spray_st, lv_palette_main(LV_PALETTE_GREEN), LV_PART_MAIN);
+        lv_led_set_color(objects.spray_st, lv_palette_main(LV_PALETTE_GREEN));
         lv_led_on(objects.spray_st);
     }
-    else
+    else // เมื่อปล่อยปุ่ม
     {
-        // ไม่กดปุ่ม -> สีแดง
-        lv_obj_set_style_bg_color(objects.spray_st, lv_palette_main(LV_PALETTE_RED), LV_PART_MAIN);
-        lv_led_on(objects.spray_st);
+        lv_led_set_color(objects.spray_st, lv_palette_main(LV_PALETTE_RED));
+        lv_led_on(objects.spray_st); // หรือ lv_led_off(objects.spray_st) หากต้องการให้ไฟดับ
     }
-
-    lv_obj_invalidate(objects.spray_st);
 }
 void update_adc_chart(lv_timer_t *timer)
 {
